@@ -14,7 +14,8 @@
 	}
 	else
 	{
-		$_SESSION['$id']=$id;
+		$_SESSION['$id'] = $id;
 		header("location: dashboard.php");
 	}
 
+?>
