@@ -83,6 +83,11 @@
                                                 <input type="text" class="form-control" placeholder="Coordinator Phone Number" value="<?php echo $row['coordinatorno']; ?>"" name="cnumber">
                                             </div>
                                         </div>
+                                        <div class="col-md-10">
+                                            <div class="form-group">
+                                                <input type="submit" value="Submit">
+                                            </div>
+                                        </div>
                                     </div>
                                 </form>
                             </div>

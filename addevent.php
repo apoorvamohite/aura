@@ -6,6 +6,6 @@
 	$co_name = $_POST['cname'];
 	$co_no = $_POST['cnumber'];
 
-	$sql = "INSERT INTO eventdetails(eventid, eventname, eventdesc, eventrule, coordinatorname, coordinatorno) VALUES ('$eventname', '$eventrule', '$eventdesc', '$co_name', '$co_no')";
+	$sql = "INSERT INTO eventdetails(eventname, eventdesc, eventrule, coordinatorname, coordinatorno) VALUES ('$eventname', '$eventrule', '$eventdesc', '$co_name', '$co_no')";
 	$res = mysqli_query($con, $sql);
 ?>
