@@ -1,6 +1,8 @@
 <?php
+session_start();
 if(!isset($_SESSION['id']) && !isset($_SESSION['user'])){
     header("Location: clogin.php");
+    return;
 }
 ?>
 <!doctype html>
@@ -9,7 +11,6 @@ if(!isset($_SESSION['id']) && !isset($_SESSION['user'])){
 	<?php require "head.html"; ?>
 </head>
 <body>
-
 <div class="wrapper">
     <?php require "sidebar.php"; ?>
     <div class="main-panel">
@@ -38,14 +39,11 @@ if(!isset($_SESSION['id']) && !isset($_SESSION['user'])){
         </nav>
         <?php
         $row=Null;
-        if(isset($_GET['edit'])){
-            //$id = $_SESSION['id'];
-            $id=1;
-            require "./init.php";
-            $sql = "SELECT * FROM eventdetails WHERE eventid=$id";
-            $res = mysqli_query($con, $sql);
-            $row = mysqli_fetch_assoc($res);
-        }
+        $id = $_SESSION['id'];
+        require "./init.php";
+        $sql = "SELECT * FROM eventdetails WHERE eventid=$id";
+        $res = mysqli_query($con, $sql);
+        $row = mysqli_fetch_assoc($res);
         ?>
         <div class="content">
             <div class="container-fluid">
@@ -60,10 +58,10 @@ if(!isset($_SESSION['id']) && !isset($_SESSION['user'])){
                     <div class="col-md-8">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title">Event Details</h4>
+                                <h4 class="title">Edit Event Details</h4>
                             </div>
                             <div class="content">
-                                <form method="POST" action="addevent.php<?php if(isset($_GET['edit'])) echo '?edit'; ?>">
+                                <form method="POST" action="editprocess.php">
                                     <div class="row">
                                         <div class="col-md-5">
                                             <div class="form-group">
@@ -85,14 +83,50 @@ if(!isset($_SESSION['id']) && !isset($_SESSION['user'])){
                                         </div>
                                         <div class="col-md-5">
                                             <div class="form-group">
-                                                <label>Coordinator Name</label>
-                                                <input type="text" class="form-control" placeholder="Coordinator Name" name="cname" value="<?php echo $row['coordinatorname']; ?>"">
+                                                <label>Coordinator 1 Name</label>
+                                                <input type="text" class="form-control" placeholder="Coordinator 1 Name" name="cname1" value="<?php echo $row['coordinatorname1']; ?>"">
                                             </div>
                                         </div>
                                         <div class="col-md-5">
                                             <div class="form-group">
-                                                <label>Coordinator Phone Number</label>
-                                                <input type="text" class="form-control" placeholder="Coordinator Phone Number" value="<?php echo $row['coordinatorno']; ?>"" name="cnumber">
+                                                <label>Coordinator 1 Phone Number</label>
+                                                <input type="text" class="form-control" placeholder="Coordinator 1 Phone Number" value="<?php echo $row['coordinatorno1']; ?>"" name="cnumber1">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <div class="form-group">
+                                                <label>Coordinator 2 Name</label>
+                                                <input type="text" class="form-control" placeholder="Coordinator 2 Name" name="cname2" value="<?php echo $row['coordinatorname2']; ?>"">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <div class="form-group">
+                                                <label>Coordinator 2 Phone Number</label>
+                                                <input type="text" class="form-control" placeholder="Coordinator 2 Phone Number" value="<?php echo $row['coordinatorno2']; ?>"" name="cnumber2">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <div class="form-group">
+                                                <label>Coordinator 3 Name</label>
+                                                <input type="text" class="form-control" placeholder="Coordinator 3 Name" name="cname3" value="<?php echo $row['coordinatorname3']; ?>"">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <div class="form-group">
+                                                <label>Coordinator 3 Phone Number</label>
+                                                <input type="text" class="form-control" placeholder="Coordinator 3 Phone Number" value="<?php echo $row['coordinatorno3']; ?>"" name="cnumber3">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <div class="form-group">
+                                                <label>Coordinator 4 Name</label>
+                                                <input type="text" class="form-control" placeholder="Coordinator 4 Name" name="cname4" value="<?php echo $row['coordinatorname4']; ?>"">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <div class="form-group">
+                                                <label>Coordinator 4 Phone Number</label>
+                                                <input type="text" class="form-control" placeholder="Coordinator 4 Phone Number" value="<?php echo $row['coordinatorno4']; ?>"" name="cnumber4">
                                             </div>
                                         </div>
                                         <div class="col-md-10">

@@ -34,7 +34,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <input type="submit" name="Login">
+                                    <input type="submit" value="Login">
                                 </form>
                             </div>
                         </div>

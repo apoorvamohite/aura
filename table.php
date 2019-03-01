@@ -1,3 +1,10 @@
+<?php
+session_start();
+if(!isset($_SESSION['id']) && !isset($_SESSION['user'])){
+    header("Location: clogin.php");
+    return;
+}
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -6,7 +13,7 @@
 <body>
 
 <div class="wrapper">
-    <?php require "sidebar.html"; ?>
+    <?php require "sidebar.php"; ?>
     <div class="main-panel">
 		<nav class="navbar navbar-default navbar-fixed">
             <div class="container-fluid">
