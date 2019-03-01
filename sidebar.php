@@ -1,3 +1,8 @@
+<?php
+if(!isset($_SESSION['id']) && !isset($_SESSION['user'])){
+    header("Location: clogin.php");
+}
+?>
 <div class="sidebar" data-color="azure" data-image="assets/img/sidebar-5.jpg">
     <div class="sidebar-wrapper">
         <div class="logo">

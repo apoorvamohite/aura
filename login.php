@@ -14,7 +14,8 @@
 	}
 	else
 	{
-		$_SESSION['$id'] = $id;
+		$_SESSION['id'] = $id;
+		$_SESSION['user'] = $username;
 		header("location: dashboard.php");
 	}
 

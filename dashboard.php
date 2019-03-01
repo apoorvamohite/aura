@@ -1,3 +1,8 @@
+<?php
+if(!isset($_SESSION['id']) && !isset($_SESSION['user'])){
+    header("Location: clogin.php");
+}
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -6,7 +11,7 @@
 <body>
 
 <div class="wrapper">
-    <?php require "sidebar.html"; ?>
+    <?php require "sidebar.php"; ?>
     <div class="main-panel">
         <nav class="navbar navbar-default navbar-fixed">
             <div class="container-fluid">
@@ -44,6 +49,13 @@
         ?>
         <div class="content">
             <div class="container-fluid">
+                <?php
+                if(isset($_GET['success']) && $_GET['success']==1){
+                    echo "<h3>Edited successfully!</h3>";
+                }elseif (isset($_GET['success']) && $_GET['success']==0) {
+                    echo "<h3>There was a problem!</h3>";
+                }
+                ?>
                 <div class="row">
                     <div class="col-md-8">
                         <div class="card">
@@ -51,7 +63,7 @@
                                 <h4 class="title">Event Details</h4>
                             </div>
                             <div class="content">
-                                <form method="POST" action="addevent.php">
+                                <form method="POST" action="addevent.php<?php if(isset($_GET['edit'])) echo '?edit'; ?>">
                                     <div class="row">
                                         <div class="col-md-5">
                                             <div class="form-group">
